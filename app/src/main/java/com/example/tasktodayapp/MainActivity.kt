@@ -16,20 +16,14 @@ import androidx.compose.material.icons.filled.Menu
 import androidx.compose.material.icons.filled.Notifications
 import androidx.compose.material.icons.filled.Search
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.tasktodayapp.model.Tarefa.Tarefa
-import com.example.tasktodayapp.ui.theme.TaskTodayAppTheme
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import java.text.SimpleDateFormat
 import java.util.*
@@ -64,7 +58,7 @@ fun MainScreenContent() {
                         Icon(
                             imageVector = Icons.Default.Menu,
                             contentDescription = "Drawer Menu",
-                            tint = Color(0xFF99ff66),
+                            tint = Color(0xFF000000),
 
                             )
                     }
@@ -77,7 +71,7 @@ fun MainScreenContent() {
 
         },
 
-        drawerBackgroundColor = Color(0xFFffffb3),
+        drawerBackgroundColor = Color(0xFFccffb3),
         drawerGesturesEnabled = scaffoldState.drawerState.isOpen,
 
         drawerContent = {
@@ -89,8 +83,8 @@ fun MainScreenContent() {
             }
 
             Column(){
-                Text(text = "Opção de Tarefas")
-                Text(text = "Opção de Notificações")
+                Text(text = "Tarefas")
+                Text(text = " Notificações")
                 Text(text = "Opção X")
             }
 
@@ -102,42 +96,42 @@ fun MainScreenContent() {
                 paddingValues -> Log.i("paddinVales", "$paddingValues")
             Column(
                 modifier = Modifier
-                    .background(Color(0xFFccebff ))
+                    .background(Color(0))
                     .fillMaxSize()
             ) {
                 MySearchField(modificador = Modifier.fillMaxWidth())
 
                 //val calendar = Calendar.getInstance()
-                //listOf<Tarefa>(Tarefa("Estudar Prova de Calculo", "Cap do livro xyz", Date(), calendar.set{2023}))
+                //listOf<Tarefa>(Tarefa("Estudar Kotlin ", "Cap 1", Date(), calendar.set{2023}))
 
-                val tProvaDeCalculo = Tarefa(
-                    "Estudar Prova de Calculo",
-                    "Cap 1 do livro xyz",
+                val tPyton = Tarefa(
+                    "Estudar Pyton",
+                    "Cap 1 ",
                     Date(),
                     Date(),
                     status = 0.0,
-                    "#d9ffb3"
+                    "#ff4d4d"
                 )
 
-                val tProvaDeKotlin = Tarefa(
-                    "Estudar prova de Kotlin",
-                    "Cap 2 do livro xz",
+                val tKotlin = Tarefa(
+                    "Estudar  Kotlin",
+                    "Cap 2 ",
                     Date(),
                     Date(),
                     status = 0.0,
-                    "#ffffb3"
+                    "#ff4d4d"
                 )
 
-                val tProvaDeBanco = Tarefa(
-                    "Estudar Postgres",
-                    "Cap 6 da atividade",
+                val tJava = Tarefa(
+                    "Estudar Java",
+                    "Cap 6 ",
                     Date(),
                     Date(),
                     status = 0.0,
-                    "#b3ffff"
+                    "#ff4d4d"
                 )
 
-                var minhaListaDeTarefas = listOf<Tarefa>(tProvaDeCalculo, tProvaDeKotlin, tProvaDeBanco)
+                var minhaListaDeTarefas = listOf<Tarefa>(tPyton, tJava, tKotlin)
                 MyTaskWidgetList(minhaListaDeTarefas)
 
             }
@@ -147,7 +141,7 @@ fun MainScreenContent() {
 
             BottomAppBar(
                 content = {Text("BottomBar")},
-                backgroundColor = Color(0xFF0099ff )
+                backgroundColor = Color(0xFF0000e6 )
             )
 
 
@@ -189,7 +183,7 @@ fun MySearchField(modificador: Modifier){
             Icon(
                 imageVector = Icons.Default.Search,
                 contentDescription = "Search Icon",
-                tint = Color(0xFF00e6e6),
+                tint = Color(0xFF000000),
             )
         }
     )
@@ -206,7 +200,7 @@ fun MyTaskWidget(
 
             Icon(
                 imageVector = Icons.Default.Notifications,
-                tint = Color(0xFFffff33),
+                tint = Color(0xFF000080),
                 contentDescription = "Icons  of a pendent taks"
             )
 
@@ -228,9 +222,9 @@ fun MyTaskWidget(
             Text(
                 text = tarefaASerMostrada.nome,
                 fontSize = 12.sp,
-                color = Color(0xFF3385ff),
+                color = Color(0xFF000000),
                 fontWeight = FontWeight.Bold,
-                fontStyle = FontStyle.Italic
+                fontStyle = FontStyle.Normal
             )
 
 
@@ -239,7 +233,7 @@ fun MyTaskWidget(
                 fontSize = 20.sp,
                 fontWeight = FontWeight.Bold,
                 fontStyle = FontStyle.Italic,
-                color = Color(0xFFdd99ff)
+                color = Color(0xFF0000000 )
             )
 
         }
